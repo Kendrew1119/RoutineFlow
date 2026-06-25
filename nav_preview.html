@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoutineFlow — Nav Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Force show mobile nav for preview regardless of screen size */
+        .mobile-nav-wrapper {
+            display: block !important;
+        }
+
+        /* Hide sidebar for preview */
+        .sidebar {
+            display: none !important;
+        }
+
+        .main-content {
+            margin-left: 0 !important;
+        }
+
+        /* Demo content */
+        .demo-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            padding-bottom: 120px;
+            background-color: var(--color-bg-primary);
+        }
+
+        .demo-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-hero p {
+            color: var(--color-text-secondary);
+            max-width: 400px;
+        }
+
+        .demo-arrow {
+            margin-top: 3rem;
+            animation: bounce 2s infinite;
+            color: var(--color-text-muted);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main-content">
+        <div class="demo-hero">
+            <h1 class="text-gradient">RoutineFlow</h1>
+            <p>Instagram-style floating navigation bar preview. Resize browser or open on mobile to test responsiveness.
+            </p>
+            <div class="demo-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </div>
+    </main>
+
+    <!-- Instagram-style floating bottom nav -->
+    <div class="mobile-nav-wrapper" id="mobileNav">
+        <nav class="mobile-nav-pill">
+            <a href="#" class="pill-nav-item active" title="Dashboard" onclick="setActive(this, event)">
+                <i data-lucide="layout-dashboard"></i>
+                <span class="pill-dot"></span>
+            </a>
+            <a href="#" class="pill-nav-item" title="Exercise" onclick="setActive(this, event)">
+                <i data-lucide="dumbbell"></i>
+                <span class="pill-dot"></span>
+            </a>
+            <a href="#" class="pill-nav-item" title="Diary" onclick="setActive(this, event)">
+                <i data-lucide="book-heart"></i>
+                <span class="pill-dot"></span>
+            </a>
+            <a href="#" class="pill-nav-item" title="Money" onclick="setActive(this, event)">
+                <i data-lucide="wallet"></i>
+                <span class="pill-dot"></span>
+            </a>
+            <a href="#" class="pill-nav-item" title="Habits" onclick="setActive(this, event)">
+                <i data-lucide="target"></i>
+                <span class="pill-dot"></span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Demo: click to switch active tab
+        function setActive(el, e) {
+            e.preventDefault();
+            document.querySelectorAll('.pill-nav-item').forEach(item => item.classList.remove('active'));
+            el.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

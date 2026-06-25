@@ -1,0 +1,396 @@
+--- PAGE 1 ---
+Teaching Plan                                                                                                                     1  UNIVERSITI TUNKU ABDUL RAHMAN (UTAR)  
+ 
+FACULTY OF INFORMATION AND COMMUNICATION 
+TECHNOLOGY (FICT)  
+ 
+ 
+Teaching Plan  
+ 
+Part A: Course Information  
+ 
+1.  Course  Code &  
+Course  Title:  
+ UCC D3243 Server -Side Web Application s Development  
+2.  Year of Study:  
+ 3 
+3.  Credit Hour:  3 
+4.  Lecturer:  Nur Athirah Nabila Mohd Idros  
+ 
+5.  Tutor:  Nur Athirah Nabila Binti Mohd Idros  
+Dr. Altahir Abdalla Altahir Mohammed  
+Ts. Dr. Suthashini a/p Subramaniam  
+ 
+6.  Year and 
+Trimester:  June 2026  Trimester  
+7.  Synopsis : This unit equips students with the knowledge and skills that are required 
+to develop Web based applications. The topics covered include setting up 
+and configuring Web servers/application servers, technology features for 
+handling client requests and generat ing server responses. Further topics 
+include technologies for maintaining state in applications, separating 
+content from presentation, and connecting and manipulating databases 
+and securing a web site. Apart from that, topics covering a range of 
+relevant w eb technologies, tool and methods will also be included.  
+8.  Course 
+Learning 
+Outcome ( CLO): Course Outcomes : 
+After completing this course , students will be able to:  
+Course Learning Outcomes (CLO):  Domain &  
+Taxonomy  
+Level1 
+CLO 1 – Assess a range of relevant web technologies,  
+tools and methods and  approaches for building Web  
+based applications.  C5 
+CLO 2 – Build web based applications that handle client  
+requests and generate  server responses.  P2 
+CLO3 – Appraise web connectivity of web applications 
+that access and manipulate  data stored in databases.  C4 
+CLO4 – Analyze methods to maintain a secure web site.  C4 
+ 
+1Domain and Taxanomy Level – Cognitive (C), Level 1 -6; Affective (A), Level 1 -5; 
+Psychomotor (P),  Level 1 -5 
+ 
+
+--- PAGE 2 ---
+Teaching Plan                                                                                                                     2 9.  Reading List:  Main References : 
+1. Jon Duckett (2022). PHP & MySQL: Server -side Web Development,  
+     Wiley, 1st Edition  
+ 
+Additional References : 
+1. Joel Murach, Ray Harris. (2022). Murach’s PHP and MySQL, Mike 
+Murach & Associates, Incorporated, 4th Edition  
+2. Paul Gibbs (2021). PHP Tutorials: Programming with PHP and 
+MySQL: Learn PHP 7 / 8 with MySQL Databases for Web 
+Programming, 5th edition  
+ 
+Part B: Constructive Alignment Table  
+ 
+ 
+N
+o
+. CLO Progr
+amme 
+Learni
+ng  
+Outco
+mes 
+(PLO)  Domai
+n & 
+Taxon
+omy 
+Level# 
+(e.g. 
+A2 / 
+C3 / 
+P5) Delivery 
+Methods  
+(e.g. 
+Lecture, 
+Tutorial, 
+Practical, 
+Case 
+Study, Site 
+Visit, Role 
+Play, Class 
+Discussion)  Assessment Methods & Mark Breakdown*  
+Midter
+m 
+Test Quiz Assig
+nment  Practi
+cal Final 
+Asses
+sment  
+Q1 Final 
+Asses
+sment
+Q2 Final 
+Asses
+sment
+Q3 Final 
+Assess
+ment  
+Q4/Q5  
+15% 5% 15% 15% 12.5
+% 12.5
+% 12.5
+% 12.5 
+% 
+1 CLO1  3 C5 Lecture, 
+Practical  √ √   √   √ 
+2 CLO2  2 P2 Lecture, 
+Practical    
+√ √     
+3 CLO3  3 C4 Lecture, 
+Practical       √   
+4 CLO4  3 C4 Lecture, 
+Practical        √  
+ 
+# Domain – Affective (A), Cognitive (C), Psychomotor(P); Taxonomy Level – A (Level 1 – 5), C (Level 1 – 6), P (Level 
+1 – 5) 
+*Assessment methods and the mark breakdown must be tally with the teaching workload approved by Senate. ONE 
+type of Coursework assessment method can be mapped to ONLY one CLO.  
+ 
+ 
+Assessment Methods:  
+ 
+Continuous Assessment  CLO  Percentage 
+(%) F2F NF2F  Total  
+SLT 
+Quiz 1 5 1 1 2 
+Midterm  1 15 1 4 5 
+Assignment  2 15 1 4 5 
+Practical  2 15 2 2 4 
+    
+Final Assessment  CLO  Percentage 
+(%) F2F NF2F  Total  
+SLT 
+Final Examination  1,3,4  50  2 14 16 
+      
+ 
+ 
+ 
+--- PAGE 3 ---
+Teaching Plan                                                                                                                     3 Part C: Lecture, Tutorial/Practical and Assessment Plan  
+ 
+ 
+Week  
+ Lecture Topic  Practical Topic  Assessments / Specific 
+Tasks  
+1 
+15/6/26 
+- 
+21/6/26 Introduction to Web Client -Server  
+▪ Internet application: World 
+Wide Web (WWW)  
+▪ Client -Server Model  
+▪ Browser Communication 
+with Server  
+▪ Static and Dynamic 
+Websites  
+▪ Multi -Tiered Approach in 
+Development of 
+Applications  
+▪ Client -Side and Server -
+Side Scripting  
+▪ PHP Fundamentals  
+ **Practical classes start on 
+Week 2  **17/6 (Wed) – Awal 
+Muharram  
+ 
+2 
+22/6/26 
+- 
+28/6/26 
+ Server -Side  Handling  
+▪ HTTP Concepts  
+▪ HTTP Status Codes  
+▪ HTTP Request Structure , 
+Response Structure  
+▪ HTTP and PHP for 
+Request Handling  
+▪ PHP Superglobal  
+▪ PHP Functions  
+▪ PHP Action and Method 
+Attributes  
+▪ PHP GET and POST 
+Method  
+ Practical 1 : Local Web 
+Development Environment 
+Setup  Release of Group Assignment  
+(4 members in a group)  
+3 
+29/6/26 
+- 
+5/7/26 
+ Database Technology  Driven Web 
+Applications  
+▪ Database Technology - 
+MySQL  
+▪ Structured Query 
+Language (SQL)  
+▪ Database Connection 
+using PHP  
+▪ Create, Read, Update, 
+Delete (CRUD) Overview  
+▪ User Interaction and Data 
+Manipulation  
+ Practical 2 : PHP 
+Fundamentals and Server -
+Side Handling   
+ 
+4 
+6/7/26 
+- 
+12/7/26 
+ Maintaining State in Web 
+Applications  
+▪ Stateful and Stateless Web 
+Application  
+▪ Cookie -Based State 
+Management in PHP  
+▪ Session Handling in PHP  
+▪ Best Practices for Session 
+Management  
+▪ User Authentication and 
+State Maintenance  
+ Practical 3 : Database 
+Connection and User 
+Authentication   
+ 
+--- PAGE 4 ---
+Teaching Plan                                                                                                                     4 5 
+13/7/26 
+- 
+19/7/26 
+ Interacting with the Server’s 
+Filesystem  
+▪ File Handling Operations in 
+PHP 
+▪ Method for File Validation  
+▪ File Upload Security 
+Measures  
+▪ Network Protocols in Data 
+Transfer  
+▪ Email Functionality in PHP  
+ Practical 4 : CRUD 
+Functionality Implementation   
+6 
+20/7/26 
+- 
+26/7/26 
+ PHP Error Handling  
+▪ PHP Exception Handling  
+▪ Common PHP Error Types  
+▪ PHP Error Reporting and 
+Configuration  
+▪ PHP Debugging 
+Techniques  
+▪ Custom Error Handling 
+Techniques  
+▪ Prevention and Strategies 
+to Handle Errors  
+ Practical 5 : Cookies and 
+Advanced Session 
+Management  
+ Quiz  - Tentative Schedule  
+(22/7/2026 (Wed))  
+ 
+7 
+27/7/26 
+- 
+2/8/26 Separating Content from  
+Presentation  
+▪ Separation of Concerns 
+(SoC) Principle  
+▪ Separating HTML Markup 
+from PHP Logic  
+▪ Model -View -Controller 
+(MVC) architecture in PHP  
+▪ Maintain Codebase 
+through Content -
+Presentation Separation  
+ Practical  6: File Upload and 
+Processing   
+ 
+8 
+3/8/26 
+- 
+9/8/26  
+ Mid Term Test : 6/8/2026  (Thu)  Practical  7: PHP Error 
+Handling  
+  
+9 
+10/8/26 
+- 
+16/8/26 AJAX - Asynchronous JavaScript 
+and XML  
+▪ AJAX Principles in 
+Asynchronous Data 
+Exchange  
+▪ XMLHttpRequest Object 
+and Functionalities  
+▪ AJAX Integration in PHP  
+▪ Server -Side Response 
+Handling in AJAX  
+▪ Features using AJAX for 
+Real-Time Data Retrieval  
+ Practical  8: Content -
+Presentation Separation  **14-15/8 (Fri -Sat) – UTAR 
+Convocation  
+ 
+10 
+17/8/26 
+- 
+23/8/26 Securing Web Application  
+▪ Introduction to Input 
+Validation and Security  
+▪ Form Validation 
+Techniques  
+▪ Common Web Security 
+Threats  
+▪ Security Measures to 
+Prevent Common 
+Vulnerabilities  Practical  9: AJAX 
+Fundamentals   
+--- PAGE 5 ---
+Teaching Plan                                                                                                                     5 ▪ Fixing Authentication and 
+Vulnerabilities  
+ 
+11 
+24/8/26 
+- 
+30/8/26 Web Server Optimization  
+▪ Introduction to Web Server 
+Optimization  
+▪ Quality Metrics and 
+Optimization Strategies  
+▪ PHP and Server 
+Performance Optimization  
+▪ Optimization Tools and 
+Techniques  
+▪ Analyzing and Resolving 
+Performance Issues  
+ Practical  10: Web 
+Application Security  **25/8 (Tue) – Prophet’s 
+Birthday  
+ 
+Assignment Submission :  
+24/8/2026  (Mon) by 5.00 PM 
+12 
+31/8/26 
+- 
+6/9/26 Hosting Environment and 
+Advancements  in Server -Side 
+Technologies  
+▪ Types of Hosting 
+Environments  
+▪ Web Application Hosting 
+Strategies  
+▪ Server -Side Technology 
+Evolution  
+▪ PHP Frameworks  
+▪ MVC architecture in PHP 
+Framework  
+  **31/8 (Mon) – National Day  
+ 
+Practical Test  - Tentative 
+Schedule ( 2/9/2026 ( Wed)) 
+ 
+ 
+ 
+13 
+7/9/26 
+- 
+13/9/26 
+ Revision  
+   
+ 
+ 
+ 
+14 
+14/9/26 
+- 
+20/9/26 
+ Revision   **16/9 (Wed) – Malaysia Day  
+ 
+ 
