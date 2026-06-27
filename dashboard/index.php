@@ -14,33 +14,25 @@ require_once '../shared/auth_check.php';
 $user_id = $_SESSION['user_id'];
 $page_title = 'Dashboard';
 
-// TODO: Query summary stats from each module table
-// Example queries (uncomment when tables are populated):
-//
-// $exerciseCount = $pdo->prepare("SELECT COUNT(*) FROM exercises WHERE user_id = ?");
-// $exerciseCount->execute([$user_id]);
-// $totalExercises = $exerciseCount->fetchColumn();
-//
-// $diaryCount = $pdo->prepare("SELECT COUNT(*) FROM diary_entries WHERE user_id = ?");
-// $diaryCount->execute([$user_id]);
-// $totalEntries = $diaryCount->fetchColumn();
-//
-// $moneyStmt = $pdo->prepare("SELECT 
-//     COALESCE(SUM(CASE WHEN transaction_type='income' THEN amount ELSE 0 END), 0) as income,
-//     COALESCE(SUM(CASE WHEN transaction_type='expense' THEN amount ELSE 0 END), 0) as expense
-//     FROM transactions WHERE user_id = ?");
-// $moneyStmt->execute([$user_id]);
-// $moneyStats = $moneyStmt->fetch();
-//
-// $habitCount = $pdo->prepare("SELECT COUNT(*) FROM habits WHERE user_id = ?");
-// $habitCount->execute([$user_id]);
-// $totalHabits = $habitCount->fetchColumn();
+// Query summary stats from each module table
+$exerciseCount = $pdo->prepare("SELECT COUNT(*) FROM exercises WHERE user_id = ?");
+$exerciseCount->execute([$user_id]);
+$totalExercises = $exerciseCount->fetchColumn();
 
-// Placeholder values (replace with real queries above)
-$totalExercises = 0;
-$totalEntries = 0;
-$moneyStats = ['income' => 0, 'expense' => 0];
-$totalHabits = 0;
+$diaryCount = $pdo->prepare("SELECT COUNT(*) FROM diary_entries WHERE user_id = ?");
+$diaryCount->execute([$user_id]);
+$totalEntries = $diaryCount->fetchColumn();
+
+$moneyStmt = $pdo->prepare("SELECT 
+    COALESCE(SUM(CASE WHEN transaction_type='income' THEN amount ELSE 0 END), 0) as income,
+    COALESCE(SUM(CASE WHEN transaction_type='expense' THEN amount ELSE 0 END), 0) as expense
+    FROM transactions WHERE user_id = ?");
+$moneyStmt->execute([$user_id]);
+$moneyStats = $moneyStmt->fetch();
+
+$habitCount = $pdo->prepare("SELECT COUNT(*) FROM habits WHERE user_id = ?");
+$habitCount->execute([$user_id]);
+$totalHabits = $habitCount->fetchColumn();
 
 include '../shared/header.php';
 include '../shared/navbar.php';
@@ -138,11 +130,84 @@ include '../shared/navbar.php';
             <div id="weather-temp" class="stat-value text-gradient" style="margin-bottom:0;">--°C</div>
             <div id="weather-desc" class="stat-label mt-sm">Loading...</div>
           </div>
-          <p class="text-muted text-xs mt-md">Kuala Lumpur, MY</p>
+          <p id="weather-city" class="font-semibold text-sm mt-md" style="margin-bottom: 2px;">Kuala Lumpur, MY</p>
+          <p id="weather-location" class="text-muted text-xs">Coords: 3.14, 101.69</p>
         </div>
       </div>
     </div>
 
+    <script>
+      async function fetchWeatherForCoords(lat, lon, isFallback = false) {
+        try {
+          const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`);
+          if (!response.ok) throw new Error('Weather API error');
+          const data = await response.json();
+          if (data && data.current) {
+            const temp = Math.round(data.current.temperature_2m);
+            const code = data.current.weather_code;
+            const wmoCodes = {
+              0: 'Clear sky',
+              1: 'Mainly clear',
+              2: 'Partly cloudy',
+              3: 'Overcast',
+              45: 'Fog', 48: 'Fog',
+              51: 'Drizzle', 53: 'Drizzle', 55: 'Drizzle',
+              61: 'Rain', 63: 'Rain', 65: 'Rain',
+              71: 'Snow', 73: 'Snow', 75: 'Snow',
+              77: 'Snow grains',
+              80: 'Rain showers', 81: 'Rain showers', 82: 'Rain showers',
+              85: 'Snow showers', 86: 'Snow showers',
+              95: 'Thunderstorm', 96: 'Thunderstorm', 99: 'Thunderstorm'
+            };
+            document.getElementById('weather-temp').textContent = `${temp}°C`;
+            document.getElementById('weather-desc').textContent = wmoCodes[code] || 'Unknown';
+            document.getElementById('weather-location').textContent = `Coords: ${lat.toFixed(2)}, ${lon.toFixed(2)}`;
+
+            if (isFallback) {
+              document.getElementById('weather-city').textContent = "Kuala Lumpur, MY";
+            } else {
+              try {
+                const geoResponse = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
+                if (geoResponse.ok) {
+                  const geoData = await geoResponse.json();
+                  const city = geoData.city || geoData.locality || geoData.principalSubdivision || 'Current Location';
+                  const country = geoData.countryName || '';
+                  document.getElementById('weather-city').textContent = country ? `${city}, ${country}` : city;
+                } else {
+                  document.getElementById('weather-city').textContent = 'Current Location';
+                }
+              } catch (geoError) {
+                console.error(geoError);
+                document.getElementById('weather-city').textContent = 'Current Location';
+              }
+            }
+          }
+        } catch (error) {
+          console.error(error);
+          document.getElementById('weather-desc').textContent = 'Unavailable';
+        }
+      }
+
+      function initWeather() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+              fetchWeatherForCoords(lat, lon, false);
+            },
+            (error) => {
+              console.warn("Geolocation failed/denied, falling back to Kuala Lumpur.", error);
+              fetchWeatherForCoords(3.1412, 101.68653, true);
+            }
+          );
+        } else {
+          fetchWeatherForCoords(3.1412, 101.68653, true);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', initWeather);
+    </script>
   </div>
 </main>
 
