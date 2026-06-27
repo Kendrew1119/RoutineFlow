@@ -29,6 +29,16 @@ try {
     ];
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
 } catch (PDOException $e) {
+    // Check if the request expects JSON
+    $is_ajax = (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') 
+        || (isset($_SERVER['HTTP_ACCEPT']) && str_contains(strtolower($_SERVER['HTTP_ACCEPT']), 'application/json'));
+
+    if ($is_ajax) {
+        header('Content-Type: application/json');
+        echo json_encode(['success' => false, 'error' => 'Database connection failed.']);
+        exit;
+    }
+
     // In production, log this instead of displaying
     die('<div style="color:red;font-family:monospace;padding:2rem;">
         <h2>Database Connection Failed</h2>
